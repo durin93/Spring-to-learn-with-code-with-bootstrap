@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.durin.dao.BoardDAO;
 import com.durin.domain.BoardVO;
+import com.durin.domain.Criteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -41,5 +42,15 @@ public class BoardServiceImpl implements BoardService{
 		return dao.listAll();
 	}
 	
+	
+	@Override
+	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+	
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
+	}
 	
 }
